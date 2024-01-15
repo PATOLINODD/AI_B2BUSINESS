@@ -1,0 +1,23 @@
+{
+  "name": "ai_b2business",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PATOLINODD/AI_B2BUSINESS.git"
+  },
+  "author": "Patrick Soares de Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PATOLINODD/AI_B2BUSINESS/issues"
+  },
+  "homepage": "https://github.com/PATOLINODD/AI_B2BUSINESS#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
