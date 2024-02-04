@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\modelDao",
+    "\\src\\model\\interfaces",
+    "\\src\\routes",
+    "\\src\\utils"
+  ],
+  "SelectedNode": "\\src\\modelDao\\clientDao.ts",
+  "PreviewInSolutionExplorer": false
+}

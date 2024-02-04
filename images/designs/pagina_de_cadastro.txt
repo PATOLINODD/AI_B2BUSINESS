@@ -1,0 +1,26 @@
+dados de cadastro da empresa que vende soluções: 
+	
+	nome da empresa
+	cnpj
+	nome fantasia
+	razão social
+	setor de atuação
+	rua
+	numero
+	bairro
+	complemento
+	telefone
+	email da empresa
+	
+
+
+
+data of login business that buy solutions:
+
+	business's name
+	cnpj
+	fantasy name
+	social reason
+	business's email
+	telephone
+	what are you searching?
