@@ -1,5 +1,5 @@
 import { IncomingHttpHeaders } from 'http';
-import { MessageOBJ } from '../model/interfaces';
+import { ClientAttributes, MessageOBJ } from '../model/interfaces';
 
 export const Secure = {
 
@@ -56,13 +56,13 @@ export const Secure = {
             throw new Error(error);
         }
     },
-    emailIsRequired: async function (where: any, model: any): Promise<void> {
+    emailIsRequired: async function (email: any, emailFromModel: string): Promise<void> {
         console.log(`Entering in method Secure.emailIsRequired(where: any, model: any): Promise<void>`);
         try {
 
-            const emailExists = await model.findOne({ where: where });
+            const emailIsValid = email.match(emailFromModel);
 
-            if (!emailExists) {
+            if (!emailIsValid) {
                 throw new Error(this.message);
             }
 

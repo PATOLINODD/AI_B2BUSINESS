@@ -39,7 +39,7 @@ export default class AbstractController {
 		} catch (error) {
 			this.message.result = null;
 			this.message.error = true;
-			this.message.msg = error.message;
+			this.message.msg = JSON.stringify(error);
 			console.error(error);
 			throw new Error(this.message + "");
 		}
@@ -67,7 +67,7 @@ export default class AbstractController {
 		} catch (error) {
 			this.message.result = null;
 			this.message.error = true;
-			this.message.msg = error.message;
+			this.message.msg = JSON.stringify(error);
 			console.error(error);
 			throw new Error(this.message + "");
 		}
@@ -95,7 +95,7 @@ export default class AbstractController {
 		} catch (error) {
 			this.message.result = null;
 			this.message.error = true;
-			this.message.msg = error.message;
+			this.message.msg = JSON.stringify(error);
 			console.error(error);
 			throw new Error(this.message + "");
 		}
@@ -124,7 +124,7 @@ export default class AbstractController {
 		} catch (error: any) {
 			this.message.result = null;
 			this.message.error = true;
-			this.message.msg = error.message;
+			this.message.msg = JSON.stringify(error);
 			console.error(error);
 			throw new Error(this.message + "");
 		}
@@ -154,10 +154,17 @@ export default class AbstractController {
 		} catch (error: any) {
 			this.message.result = null;
 			this.message.error = true;
-			this.message.result = error.message;
+			this.message.result = JSON.stringify(error);
 			console.error(error);
 			throw new Error(this.message + "");
 		}
+	}
+
+	protected msgError(msg: MessageOBJ): MessageOBJ{
+		msg.code = 400;
+		msg.error = true;
+		msg.result = null;
+		return msg;
 	}
 	
 	public async deleteByID (where: any): Promise<MessageOBJ> {
@@ -175,6 +182,8 @@ export default class AbstractController {
 			});
 
 			if (modelDestroyed) {
+				console.log("Model destroyed!");
+				
 				this.message.code = 200;
 				this.message.error = false;
 				this.message.result = modelDestroyed;
@@ -184,7 +193,7 @@ export default class AbstractController {
 		} catch (error: any) {
 			this.message.result = null;
 			this.message.error = true;
-			this.message.result = error.message;
+			this.message.result = JSON.stringify(error);
 			console.error(error);
 			throw new Error(this.message + "");
 		}
