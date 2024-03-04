@@ -17,17 +17,15 @@ export class ClientController extends AbstractController {
     );
 
     try {
-      const msg = await this.getByID(req.params.id);
+      await this.getByID(req.params.id);
 
-      if (!msg.error) {
-        const [email, pass] = Secure.getBasicUser(req.headers)!;
-        await Secure.validatePass(pass, msg.result);
-        await Secure.emailIsRequired(email, (msg.result as ClientAttributes).CLTEMAIL);
+      if (!this.message.error) {
+        await this.authenticateUser(req.headers, req.params.id);
 
-        res.json(msg);
+        res.json(this.message);
         return;
       }
-      res.status(400).json(this.msgError(msg));
+      res.status(400).json(this.msgError(this.message));
     } catch (error: any) {
       this.message.msg = error.message;
       res.status(500).json(this.msgError(this.message));
@@ -40,17 +38,17 @@ export class ClientController extends AbstractController {
     );
 
     try {
-      const msg = await this.getList();
+      await this.getList();
 
-      if (!msg.error) {
-        res.json(msg);
+      if (!this.message.error) {
+        res.json(this.message);
         return;
       }
 
-      res.status(400).json(this.msgError(msg));
+      res.status(400).json(this.msgError(this.message));
     } catch (error: any) {
       this.message.msg = error.message;
-      res.status(500).json(this.msgError(this.message));
+      res.status(500).json(this.message);
     }
   }
 
@@ -60,27 +58,27 @@ export class ClientController extends AbstractController {
     );
 
     try {
-      const providerBody: ClientAttributes = req.body;
+      const clientBody: ClientAttributes = req.body;
 
       await Secure.emailCantBeValid(
-        { CLTEMAIL: providerBody.CLTEMAIL },
+        { CLTEMAIL: clientBody.CLTEMAIL },
         this.model
       );
 
-      providerBody.CLTCREATEDATE = UtilDate.dateTimeString(new Date());
-      providerBody.CLTUPDATEDATE = UtilDate.dateTimeString(new Date());
+      clientBody.CLTCREATEDATE = UtilDate.dateTimeString(new Date());
+      clientBody.CLTUPDATEDATE = UtilDate.dateTimeString(new Date());
 
-      const msg = await this.save(providerBody);
+      await this.save(clientBody);
 
-      if (!msg.error) {
-        res.json(msg);
+      if (!this.message.error) {
+        res.json(this.message);
         return;
       }
 
-      res.status(400).json(this.msgError(msg));
+      res.status(400).json(this.msgError(this.message));
     } catch (error: any) {
       this.message.msg = error.message;
-      res.status(500).json(this.msgError(this.message));
+      res.status(500).json(this.message);
     }
   }
 
@@ -90,10 +88,7 @@ export class ClientController extends AbstractController {
     );
 
     try {
-      const [email, pass] = Secure.getBasicUser(req.headers)!;
-      const result = await this.getByID(req.params.id);
-      await Secure.validatePass(pass, result.result);
-      await Secure.emailIsRequired(email, (result.result as ClientAttributes).CLTEMAIL);
+      await this.authenticateUser(req.headers, req.params.id);
       const providerBody: ClientAttributes = req.body;
 
       providerBody.CLTUPDATEDATE = UtilDate.dateTimeString(new Date());
@@ -102,16 +97,16 @@ export class ClientController extends AbstractController {
         CLTID: req.params.id,
       };
 
-      const msg = await this.updateByID(providerBody, where);
+      await this.updateByID(providerBody, where);
 
-      if (!msg.error) {
-        res.json(msg);
+      if (!this.message.error) {
+        res.json(this.message);
         return;
       }
-      res.status(400).json(this.msgError(msg));
+      res.status(400).json(this.msgError(this.message));
     } catch (error: any) {
       this.message.msg = error.message;
-      res.status(500).json(this.msgError(this.message));
+      res.status(500).json(this.message);
     }
   }
 
@@ -121,24 +116,22 @@ export class ClientController extends AbstractController {
     );
 
     try {
-      const [email, pass] = Secure.getBasicUser(req.headers)!;
-      const result = await this.getByID(req.params.id);
-      await Secure.validatePass(pass, result.result);
-      await Secure.emailIsRequired(email, (result.result as ClientAttributes).CLTEMAIL);
+
+      await this.authenticateUser(req.headers, req.params.id);
 
       const where = {
         CLTID: req.params.id,
       };
-      const msg = await this.deleteByID(where);
+      await this.deleteByID(where);
 
-      if (!msg.error) {
-        res.json(msg);
+      if (!this.message.error) {
+        res.json(this.message);
         return;
       }
-      res.status(400).json(this.msgError(msg));
+      res.status(400).json(this.msgError(this.message));
     } catch (error: any) {
       this.message.msg = error.message;
-      res.status(500).json(this.msgError(this.message));
+      res.status(500).json(this.message);
     }
   }
 }

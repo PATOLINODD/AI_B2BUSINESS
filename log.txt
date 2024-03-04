@@ -65,6 +65,72 @@ app listening in port 4200
   }
 ]
 [
+  'Executing (default): CREATE TABLE IF NOT EXISTS `CLIENTS` (`CLTID` INTEGER auto_increment , `CLTNAME` VARCHAR(50), `CLTEMAIL` VARCHAR(50), `CLTPASSWORD` TEXT, `CLTCNPJ` VARCHAR(15), `CLTBUSINESSNAME` VARCHAR(20), `CLTFANTASYNAME` VARCHAR(30), `CLTSOCIALREASON` VARCHAR(20), `CLTCREATEDATE` VARCHAR(255), `CLTUPDATEDATE` VARCHAR(255), PRIMARY KEY (`CLTID`)) ENGINE=InnoDB;',
+  {
+    plain: false,
+    raw: true,
+    logging: [Function: logging],
+    showWarnings: false,
+    timestamps: true,
+    validate: {},
+    freezeTableName: false,
+    underscored: false,
+    paranoid: false,
+    rejectOnEmpty: false,
+    whereCollection: null,
+    schema: null,
+    schemaDelimiter: '',
+    defaultScope: {},
+    scopes: {},
+    indexes: [],
+    whereMergeStrategy: 'overwrite',
+    name: { plural: 'Clients', singular: 'Client' },
+    omitNull: false,
+    tableName: 'CLIENTS',
+    createdAt: false,
+    updatedAt: false,
+    sequelize: Sequelize {
+      options: [Object],
+      config: [Object],
+      dialect: [MysqlDialect],
+      queryInterface: [MySQLQueryInterface],
+      models: [Object],
+      modelManager: [ModelManager],
+      connectionManager: [ConnectionManager]
+    },
+    hooks: true,
+    dialect: 'mysql',
+    dialectModule: null,
+    dialectModulePath: null,
+    host: '127.0.0.1',
+    protocol: 'tcp',
+    define: {},
+    query: {},
+    sync: {},
+    timezone: '+00:00',
+    standardConformingStrings: true,
+    native: false,
+    replication: false,
+    ssl: undefined,
+    pool: {},
+    quoteIdentifiers: true,
+    retry: { max: 5, match: [Array] },
+    transactionType: 'DEFERRED',
+    isolationLevel: null,
+    databaseVersion: 0,
+    typeValidation: false,
+    benchmark: false,
+    minifyAliases: false,
+    logQueryParameters: true,
+    attributeBehavior: 'throw',
+    port: 3306,
+    dialectOptions: { flags: [Object] },
+    match: /IAB2BUSINESS/,
+    uniqueKeys: {},
+    type: 'RAW'
+  }
+]
+[
   'Executing (default): SHOW INDEX FROM `CLIENTS`',
   {
     plain: false,
@@ -195,6 +261,72 @@ app listening in port 4200
   }
 ]
 [
+  'Executing (default): CREATE TABLE IF NOT EXISTS `PROVIDERS` (`PROVIDERID` INTEGER auto_increment , `PRVNAME` VARCHAR(50), `PRVEMAIL` VARCHAR(50), `PRVPASSWORD` TEXT, `PRVCNPJ` VARCHAR(15), `PRVBUSINESSNAME` VARCHAR(20), `PRVFANTASYNAME` VARCHAR(30), `PRVSOCIALREASON` VARCHAR(20), `PRVSECTORACTING` VARCHAR(100), `PRVCREATEDATE` VARCHAR(100), `PRVUPDATEDATE` VARCHAR(100), PRIMARY KEY (`PROVIDERID`)) ENGINE=InnoDB;',
+  {
+    plain: false,
+    raw: true,
+    logging: [Function: logging],
+    showWarnings: false,
+    timestamps: true,
+    validate: {},
+    freezeTableName: false,
+    underscored: false,
+    paranoid: false,
+    rejectOnEmpty: false,
+    whereCollection: null,
+    schema: null,
+    schemaDelimiter: '',
+    defaultScope: {},
+    scopes: {},
+    indexes: [],
+    whereMergeStrategy: 'overwrite',
+    name: { plural: 'Providers', singular: 'Provider' },
+    omitNull: false,
+    tableName: 'PROVIDERS',
+    createdAt: false,
+    updatedAt: false,
+    sequelize: Sequelize {
+      options: [Object],
+      config: [Object],
+      dialect: [MysqlDialect],
+      queryInterface: [MySQLQueryInterface],
+      models: [Object],
+      modelManager: [ModelManager],
+      connectionManager: [ConnectionManager]
+    },
+    hooks: true,
+    dialect: 'mysql',
+    dialectModule: null,
+    dialectModulePath: null,
+    host: '127.0.0.1',
+    protocol: 'tcp',
+    define: {},
+    query: {},
+    sync: {},
+    timezone: '+00:00',
+    standardConformingStrings: true,
+    native: false,
+    replication: false,
+    ssl: undefined,
+    pool: {},
+    quoteIdentifiers: true,
+    retry: { max: 5, match: [Array] },
+    transactionType: 'DEFERRED',
+    isolationLevel: null,
+    databaseVersion: 0,
+    typeValidation: false,
+    benchmark: false,
+    minifyAliases: false,
+    logQueryParameters: true,
+    attributeBehavior: 'throw',
+    port: 3306,
+    dialectOptions: { flags: [Object] },
+    match: /IAB2BUSINESS/,
+    uniqueKeys: {},
+    type: 'RAW'
+  }
+]
+[
   'Executing (default): SHOW INDEX FROM `PROVIDERS`',
   {
     plain: false,
@@ -260,753 +392,3 @@ app listening in port 4200
   }
 ]
 connect successfully!
-Entering in method ProviderController.saveProvider(req: Request, res: Response): Promise<void>
-Entering in method Secure.emailCantBeValid(where: any, model: any): Promise<void>
-[
-  "Executing (default): SELECT `PROVIDERID`, `PRVNAME`, `PRVEMAIL`, `PRVPASSWORD`, `PRVCNPJ`, `PRVBUSINESSNAME`, `PRVFANTASYNAME`, `PRVSOCIALREASON`, `PRVSECTORACTING`, `PRVCREATEDATE`, `PRVUPDATEDATE` FROM `PROVIDERS` AS `Provider` WHERE `Provider`.`PRVEMAIL` = 'ninguemaquitenta@gmail.com' LIMIT 1;",
-  {
-    plain: true,
-    raw: false,
-    logging: [Function: logging],
-    showWarnings: false,
-    where: "`Provider`.`PRVEMAIL` = 'ninguemaquitenta@gmail.com'",
-    limit: 1,
-    hooks: true,
-    rejectOnEmpty: false,
-    originalAttributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    attributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    tableNames: [ 'PROVIDERS' ],
-    type: 'SELECT',
-    model: Provider
-  }
-]
-Entering in method AbstractController.save(body: object = 
-[
-  'Executing (default): INSERT INTO `PROVIDERS` (`PROVIDERID`,`PRVNAME`,`PRVEMAIL`,`PRVPASSWORD`,`PRVCNPJ`,`PRVBUSINESSNAME`,`PRVFANTASYNAME`,`PRVSOCIALREASON`,`PRVSECTORACTING`,`PRVCREATEDATE`,`PRVUPDATEDATE`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?,?); "WISEUP", "ninguemaquitenta@gmail.com", "$2a$12$5PXS3ITVR3/ydBhkiWSqc.TwEgvh23JB/LPYAOsg1GqKkZ4an0cem", "123456788", "WISEUP", "WISEUP", "INGLES", "INGLES", "11/2/2024 22:13:46", "11/2/2024 22:13:46"',
-  {
-    plain: false,
-    raw: false,
-    logging: [Function: logging],
-    showWarnings: false,
-    hooks: true,
-    validate: true,
-    fields: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    defaultFields: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    returning: true,
-    hasTrigger: undefined,
-    dialect: 'mysql',
-    dialectModule: null,
-    dialectModulePath: null,
-    host: '127.0.0.1',
-    protocol: 'tcp',
-    define: {},
-    query: {},
-    sync: {},
-    timezone: '+00:00',
-    standardConformingStrings: true,
-    omitNull: false,
-    native: false,
-    replication: false,
-    ssl: undefined,
-    pool: {},
-    quoteIdentifiers: true,
-    retry: { max: 5, match: [Array] },
-    transactionType: 'DEFERRED',
-    isolationLevel: null,
-    databaseVersion: '8.0.35',
-    typeValidation: false,
-    benchmark: false,
-    minifyAliases: false,
-    logQueryParameters: true,
-    attributeBehavior: 'throw',
-    port: 3306,
-    dialectOptions: { flags: [Object] },
-    type: 'INSERT',
-    instance: Provider {
-      dataValues: [Object],
-      _previousDataValues: [Object],
-      uniqno: 1,
-      _changed: [Set],
-      _options: [Object],
-      isNewRecord: true
-    },
-    model: Provider,
-    bind: [
-      'WISEUP',
-      'ninguemaquitenta@gmail.com',
-      '$2a$12$5PXS3ITVR3/ydBhkiWSqc.TwEgvh23JB/LPYAOsg1GqKkZ4an0cem',
-      '123456788',
-      'WISEUP',
-      'WISEUP',
-      'INGLES',
-      'INGLES',
-      '11/2/2024 22:13:46',
-      '11/2/2024 22:13:46'
-    ]
-  }
-]
-Entering in method ProviderController.getProviderByID(req: Request, res: Response): Promise<void>
-Entering in method AbstractController.getByID(id: string = 1): Promise<MessageOBJ>
-[
-  "Executing (default): SELECT `PROVIDERID`, `PRVNAME`, `PRVEMAIL`, `PRVPASSWORD`, `PRVCNPJ`, `PRVBUSINESSNAME`, `PRVFANTASYNAME`, `PRVSOCIALREASON`, `PRVSECTORACTING`, `PRVCREATEDATE`, `PRVUPDATEDATE` FROM `PROVIDERS` AS `Provider` WHERE `Provider`.`PROVIDERID` = '1';",
-  {
-    plain: true,
-    raw: false,
-    logging: [Function: logging],
-    showWarnings: false,
-    where: "`Provider`.`PROVIDERID` = '1'",
-    hooks: true,
-    rejectOnEmpty: false,
-    originalAttributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    attributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    tableNames: [ 'PROVIDERS' ],
-    type: 'SELECT',
-    model: Provider
-  }
-]
-Entering in method Secure.getBasicUser(header: IncomingHttpHeaders): string[] | null
-Entering in method Secure.validatePass(token: string, model: any): Promise<void>
-Provider {
-  dataValues: {
-    PROVIDERID: 1,
-    PRVNAME: 'WISEUP',
-    PRVEMAIL: 'ninguemaquitenta@gmail.com',
-    PRVPASSWORD: '$2a$12$5PXS3ITVR3/ydBhkiWSqc.TwEgvh23JB/LPYAOsg1GqKkZ4an0cem',
-    PRVCNPJ: '123456788',
-    PRVBUSINESSNAME: 'WISEUP',
-    PRVFANTASYNAME: 'WISEUP',
-    PRVSOCIALREASON: 'INGLES',
-    PRVSECTORACTING: 'INGLES',
-    PRVCREATEDATE: '11/2/2024 22:13:46',
-    PRVUPDATEDATE: '11/2/2024 22:13:46'
-  },
-  _previousDataValues: {
-    PROVIDERID: 1,
-    PRVNAME: 'WISEUP',
-    PRVEMAIL: 'ninguemaquitenta@gmail.com',
-    PRVPASSWORD: '$2a$12$5PXS3ITVR3/ydBhkiWSqc.TwEgvh23JB/LPYAOsg1GqKkZ4an0cem',
-    PRVCNPJ: '123456788',
-    PRVBUSINESSNAME: 'WISEUP',
-    PRVFANTASYNAME: 'WISEUP',
-    PRVSOCIALREASON: 'INGLES',
-    PRVSECTORACTING: 'INGLES',
-    PRVCREATEDATE: '11/2/2024 22:13:46',
-    PRVUPDATEDATE: '11/2/2024 22:13:46'
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: null,
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ]
-  },
-  isNewRecord: false
-}
-Entering in method Secure.emailIsRequired(where: any, model: any): Promise<void>
-Entering in method ProviderController.updateProviderByID(req: Request, res: Response): Promise<void>
-Entering in method Secure.getBasicUser(header: IncomingHttpHeaders): string[] | null
-Entering in method ProviderController.updateProviderByID(req: Request, res: Response): Promise<void>
-Entering in method Secure.getBasicUser(header: IncomingHttpHeaders): string[] | null
-Entering in method AbstractController.getByID(id: string = 3): Promise<MessageOBJ>
-[
-  "Executing (default): SELECT `PROVIDERID`, `PRVNAME`, `PRVEMAIL`, `PRVPASSWORD`, `PRVCNPJ`, `PRVBUSINESSNAME`, `PRVFANTASYNAME`, `PRVSOCIALREASON`, `PRVSECTORACTING`, `PRVCREATEDATE`, `PRVUPDATEDATE` FROM `PROVIDERS` AS `Provider` WHERE `Provider`.`PROVIDERID` = '3';",
-  {
-    plain: true,
-    raw: false,
-    logging: [Function: logging],
-    showWarnings: false,
-    where: "`Provider`.`PROVIDERID` = '3'",
-    hooks: true,
-    rejectOnEmpty: false,
-    originalAttributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    attributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    tableNames: [ 'PROVIDERS' ],
-    type: 'SELECT',
-    model: Provider
-  }
-]
-Entering in method Secure.validatePass(token: string, model: any): Promise<void>
-null
-Error: Client unhauthorized!
-    at Object.<anonymous> (C:\Users\PATOLINODD\Desktop\AI_B2BUSINESS\src\utils\secureData.ts:28:23)
-    at step (C:\Users\PATOLINODD\Desktop\AI_B2BUSINESS\src\utils\secureData.ts:33:23)
-    at Object.next (C:\Users\PATOLINODD\Desktop\AI_B2BUSINESS\src\utils\secureData.ts:14:53)
-    at C:\Users\PATOLINODD\Desktop\AI_B2BUSINESS\src\utils\secureData.ts:8:71
-    at new Promise (<anonymous>)
-    at __awaiter (C:\Users\PATOLINODD\Desktop\AI_B2BUSINESS\src\utils\secureData.ts:4:12)
-    at Object.validatePass (C:\Users\PATOLINODD\Desktop\AI_B2BUSINESS\src\utils\secureData.ts:53:16)
-    at ProviderController.<anonymous> (C:\Users\PATOLINODD\Desktop\AI_B2BUSINESS\src\controller\providerController.ts:94:24)
-    at step (C:\Users\PATOLINODD\Desktop\AI_B2BUSINESS\src\controller\providerController.ts:48:23)
-    at Object.next (C:\Users\PATOLINODD\Desktop\AI_B2BUSINESS\src\controller\providerController.ts:29:53)
-Entering in method ProviderController.updateProviderByID(req: Request, res: Response): Promise<void>
-Entering in method Secure.getBasicUser(header: IncomingHttpHeaders): string[] | null
-Entering in method AbstractController.getByID(id: string = 1): Promise<MessageOBJ>
-[
-  "Executing (default): SELECT `PROVIDERID`, `PRVNAME`, `PRVEMAIL`, `PRVPASSWORD`, `PRVCNPJ`, `PRVBUSINESSNAME`, `PRVFANTASYNAME`, `PRVSOCIALREASON`, `PRVSECTORACTING`, `PRVCREATEDATE`, `PRVUPDATEDATE` FROM `PROVIDERS` AS `Provider` WHERE `Provider`.`PROVIDERID` = '1';",
-  {
-    plain: true,
-    raw: false,
-    logging: [Function: logging],
-    showWarnings: false,
-    where: "`Provider`.`PROVIDERID` = '1'",
-    hooks: true,
-    rejectOnEmpty: false,
-    originalAttributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    attributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    tableNames: [ 'PROVIDERS' ],
-    type: 'SELECT',
-    model: Provider
-  }
-]
-Entering in method Secure.validatePass(token: string, model: any): Promise<void>
-Provider {
-  dataValues: {
-    PROVIDERID: 1,
-    PRVNAME: 'WISEUP',
-    PRVEMAIL: 'ninguemaquitenta@gmail.com',
-    PRVPASSWORD: '$2a$12$5PXS3ITVR3/ydBhkiWSqc.TwEgvh23JB/LPYAOsg1GqKkZ4an0cem',
-    PRVCNPJ: '123456788',
-    PRVBUSINESSNAME: 'WISEUP',
-    PRVFANTASYNAME: 'WISEUP',
-    PRVSOCIALREASON: 'INGLES',
-    PRVSECTORACTING: 'INGLES',
-    PRVCREATEDATE: '11/2/2024 22:13:46',
-    PRVUPDATEDATE: '11/2/2024 22:13:46'
-  },
-  _previousDataValues: {
-    PROVIDERID: 1,
-    PRVNAME: 'WISEUP',
-    PRVEMAIL: 'ninguemaquitenta@gmail.com',
-    PRVPASSWORD: '$2a$12$5PXS3ITVR3/ydBhkiWSqc.TwEgvh23JB/LPYAOsg1GqKkZ4an0cem',
-    PRVCNPJ: '123456788',
-    PRVBUSINESSNAME: 'WISEUP',
-    PRVFANTASYNAME: 'WISEUP',
-    PRVSOCIALREASON: 'INGLES',
-    PRVSECTORACTING: 'INGLES',
-    PRVCREATEDATE: '11/2/2024 22:13:46',
-    PRVUPDATEDATE: '11/2/2024 22:13:46'
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: null,
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ]
-  },
-  isNewRecord: false
-}
-Entering in method Secure.emailIsRequired(where: any, model: any): Promise<void>
-Entering in method AbstractController.updateByID(body: object = [object Object], id: object = [object Object]): Promise<MessageOBJ>
-[
-  'Executing (default): UPDATE `PROVIDERS` SET `PRVNAME`=?,`PRVUPDATEDATE`=? WHERE `PROVIDERID` = ?; "NOME GENERICO 123", "11/2/2024 22:17:52", "1"',
-  {
-    plain: false,
-    raw: false,
-    logging: [Function: logging],
-    showWarnings: false,
-    where: { PROVIDERID: '1' },
-    validate: true,
-    hooks: true,
-    individualHooks: false,
-    returning: false,
-    force: false,
-    sideEffects: true,
-    type: 'BULKUPDATE',
-    fields: [ 'PRVNAME', 'PRVUPDATEDATE' ],
-    model: Provider,
-    skip: undefined,
-    hasTrigger: undefined,
-    dialect: 'mysql',
-    dialectModule: null,
-    dialectModulePath: null,
-    host: '127.0.0.1',
-    protocol: 'tcp',
-    define: {},
-    query: {},
-    sync: {},
-    timezone: '+00:00',
-    standardConformingStrings: true,
-    omitNull: false,
-    native: false,
-    replication: false,
-    ssl: undefined,
-    pool: {},
-    quoteIdentifiers: true,
-    retry: { max: 5, match: [Array] },
-    transactionType: 'DEFERRED',
-    isolationLevel: null,
-    databaseVersion: '8.0.35',
-    typeValidation: false,
-    benchmark: false,
-    minifyAliases: false,
-    logQueryParameters: true,
-    attributeBehavior: 'throw',
-    port: 3306,
-    dialectOptions: { flags: [Object] },
-    allowNull: [],
-    bind: [ 'NOME GENERICO 123', '11/2/2024 22:17:52', '1' ]
-  }
-]
-Entering in method ProviderController.getProviderByID(req: Request, res: Response): Promise<void>
-Entering in method AbstractController.getByID(id: string = 1): Promise<MessageOBJ>
-[
-  "Executing (default): SELECT `PROVIDERID`, `PRVNAME`, `PRVEMAIL`, `PRVPASSWORD`, `PRVCNPJ`, `PRVBUSINESSNAME`, `PRVFANTASYNAME`, `PRVSOCIALREASON`, `PRVSECTORACTING`, `PRVCREATEDATE`, `PRVUPDATEDATE` FROM `PROVIDERS` AS `Provider` WHERE `Provider`.`PROVIDERID` = '1';",
-  {
-    plain: true,
-    raw: false,
-    logging: [Function: logging],
-    showWarnings: false,
-    where: "`Provider`.`PROVIDERID` = '1'",
-    hooks: true,
-    rejectOnEmpty: false,
-    originalAttributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    attributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    tableNames: [ 'PROVIDERS' ],
-    type: 'SELECT',
-    model: Provider
-  }
-]
-Entering in method Secure.getBasicUser(header: IncomingHttpHeaders): string[] | null
-Entering in method Secure.validatePass(token: string, model: any): Promise<void>
-Provider {
-  dataValues: {
-    PROVIDERID: 1,
-    PRVNAME: 'NOME GENERICO 123',
-    PRVEMAIL: 'ninguemaquitenta@gmail.com',
-    PRVPASSWORD: '$2a$12$5PXS3ITVR3/ydBhkiWSqc.TwEgvh23JB/LPYAOsg1GqKkZ4an0cem',
-    PRVCNPJ: '123456788',
-    PRVBUSINESSNAME: 'WISEUP',
-    PRVFANTASYNAME: 'WISEUP',
-    PRVSOCIALREASON: 'INGLES',
-    PRVSECTORACTING: 'INGLES',
-    PRVCREATEDATE: '11/2/2024 22:13:46',
-    PRVUPDATEDATE: '11/2/2024 22:17:52'
-  },
-  _previousDataValues: {
-    PROVIDERID: 1,
-    PRVNAME: 'NOME GENERICO 123',
-    PRVEMAIL: 'ninguemaquitenta@gmail.com',
-    PRVPASSWORD: '$2a$12$5PXS3ITVR3/ydBhkiWSqc.TwEgvh23JB/LPYAOsg1GqKkZ4an0cem',
-    PRVCNPJ: '123456788',
-    PRVBUSINESSNAME: 'WISEUP',
-    PRVFANTASYNAME: 'WISEUP',
-    PRVSOCIALREASON: 'INGLES',
-    PRVSECTORACTING: 'INGLES',
-    PRVCREATEDATE: '11/2/2024 22:13:46',
-    PRVUPDATEDATE: '11/2/2024 22:17:52'
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: null,
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ]
-  },
-  isNewRecord: false
-}
-Entering in method Secure.emailIsRequired(where: any, model: any): Promise<void>
-Entering in method ProviderController.deleteProviderByID(req: Request, res: Response): Promise<void>
-Entering in method Secure.getBasicUser(header: IncomingHttpHeaders): string[] | null
-Entering in method ProviderController.deleteProviderByID(req: Request, res: Response): Promise<void>
-Entering in method Secure.getBasicUser(header: IncomingHttpHeaders): string[] | null
-Entering in method AbstractController.getByID(id: string = 1): Promise<MessageOBJ>
-[
-  "Executing (default): SELECT `PROVIDERID`, `PRVNAME`, `PRVEMAIL`, `PRVPASSWORD`, `PRVCNPJ`, `PRVBUSINESSNAME`, `PRVFANTASYNAME`, `PRVSOCIALREASON`, `PRVSECTORACTING`, `PRVCREATEDATE`, `PRVUPDATEDATE` FROM `PROVIDERS` AS `Provider` WHERE `Provider`.`PROVIDERID` = '1';",
-  {
-    plain: true,
-    raw: false,
-    logging: [Function: logging],
-    showWarnings: false,
-    where: "`Provider`.`PROVIDERID` = '1'",
-    hooks: true,
-    rejectOnEmpty: false,
-    originalAttributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    attributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    tableNames: [ 'PROVIDERS' ],
-    type: 'SELECT',
-    model: Provider
-  }
-]
-Entering in method Secure.validatePass(token: string, model: any): Promise<void>
-Provider {
-  dataValues: {
-    PROVIDERID: 1,
-    PRVNAME: 'NOME GENERICO 123',
-    PRVEMAIL: 'ninguemaquitenta@gmail.com',
-    PRVPASSWORD: '$2a$12$5PXS3ITVR3/ydBhkiWSqc.TwEgvh23JB/LPYAOsg1GqKkZ4an0cem',
-    PRVCNPJ: '123456788',
-    PRVBUSINESSNAME: 'WISEUP',
-    PRVFANTASYNAME: 'WISEUP',
-    PRVSOCIALREASON: 'INGLES',
-    PRVSECTORACTING: 'INGLES',
-    PRVCREATEDATE: '11/2/2024 22:13:46',
-    PRVUPDATEDATE: '11/2/2024 22:17:52'
-  },
-  _previousDataValues: {
-    PROVIDERID: 1,
-    PRVNAME: 'NOME GENERICO 123',
-    PRVEMAIL: 'ninguemaquitenta@gmail.com',
-    PRVPASSWORD: '$2a$12$5PXS3ITVR3/ydBhkiWSqc.TwEgvh23JB/LPYAOsg1GqKkZ4an0cem',
-    PRVCNPJ: '123456788',
-    PRVBUSINESSNAME: 'WISEUP',
-    PRVFANTASYNAME: 'WISEUP',
-    PRVSOCIALREASON: 'INGLES',
-    PRVSECTORACTING: 'INGLES',
-    PRVCREATEDATE: '11/2/2024 22:13:46',
-    PRVUPDATEDATE: '11/2/2024 22:17:52'
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: null,
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ]
-  },
-  isNewRecord: false
-}
-Error: Client unhauthorized!
-    at Object.<anonymous> (C:\Users\PATOLINODD\Desktop\AI_B2BUSINESS\src\utils\secureData.ts:34:23)
-    at step (C:\Users\PATOLINODD\Desktop\AI_B2BUSINESS\src\utils\secureData.ts:33:23)
-    at Object.next (C:\Users\PATOLINODD\Desktop\AI_B2BUSINESS\src\utils\secureData.ts:14:53)
-    at fulfilled (C:\Users\PATOLINODD\Desktop\AI_B2BUSINESS\src\utils\secureData.ts:5:58)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-Entering in method ProviderController.deleteProviderByID(req: Request, res: Response): Promise<void>
-Entering in method Secure.getBasicUser(header: IncomingHttpHeaders): string[] | null
-Entering in method AbstractController.getByID(id: string = 1): Promise<MessageOBJ>
-[
-  "Executing (default): SELECT `PROVIDERID`, `PRVNAME`, `PRVEMAIL`, `PRVPASSWORD`, `PRVCNPJ`, `PRVBUSINESSNAME`, `PRVFANTASYNAME`, `PRVSOCIALREASON`, `PRVSECTORACTING`, `PRVCREATEDATE`, `PRVUPDATEDATE` FROM `PROVIDERS` AS `Provider` WHERE `Provider`.`PROVIDERID` = '1';",
-  {
-    plain: true,
-    raw: false,
-    logging: [Function: logging],
-    showWarnings: false,
-    where: "`Provider`.`PROVIDERID` = '1'",
-    hooks: true,
-    rejectOnEmpty: false,
-    originalAttributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    attributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ],
-    tableNames: [ 'PROVIDERS' ],
-    type: 'SELECT',
-    model: Provider
-  }
-]
-Entering in method Secure.validatePass(token: string, model: any): Promise<void>
-Provider {
-  dataValues: {
-    PROVIDERID: 1,
-    PRVNAME: 'NOME GENERICO 123',
-    PRVEMAIL: 'ninguemaquitenta@gmail.com',
-    PRVPASSWORD: '$2a$12$5PXS3ITVR3/ydBhkiWSqc.TwEgvh23JB/LPYAOsg1GqKkZ4an0cem',
-    PRVCNPJ: '123456788',
-    PRVBUSINESSNAME: 'WISEUP',
-    PRVFANTASYNAME: 'WISEUP',
-    PRVSOCIALREASON: 'INGLES',
-    PRVSECTORACTING: 'INGLES',
-    PRVCREATEDATE: '11/2/2024 22:13:46',
-    PRVUPDATEDATE: '11/2/2024 22:17:52'
-  },
-  _previousDataValues: {
-    PROVIDERID: 1,
-    PRVNAME: 'NOME GENERICO 123',
-    PRVEMAIL: 'ninguemaquitenta@gmail.com',
-    PRVPASSWORD: '$2a$12$5PXS3ITVR3/ydBhkiWSqc.TwEgvh23JB/LPYAOsg1GqKkZ4an0cem',
-    PRVCNPJ: '123456788',
-    PRVBUSINESSNAME: 'WISEUP',
-    PRVFANTASYNAME: 'WISEUP',
-    PRVSOCIALREASON: 'INGLES',
-    PRVSECTORACTING: 'INGLES',
-    PRVCREATEDATE: '11/2/2024 22:13:46',
-    PRVUPDATEDATE: '11/2/2024 22:17:52'
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: null,
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'PROVIDERID',
-      'PRVNAME',
-      'PRVEMAIL',
-      'PRVPASSWORD',
-      'PRVCNPJ',
-      'PRVBUSINESSNAME',
-      'PRVFANTASYNAME',
-      'PRVSOCIALREASON',
-      'PRVSECTORACTING',
-      'PRVCREATEDATE',
-      'PRVUPDATEDATE'
-    ]
-  },
-  isNewRecord: false
-}
-Entering in method Secure.emailIsRequired(where: any, model: any): Promise<void>
-Entering in method AbstractController.deleteByID(id: object = [object Object]): Promise<MessageOBJ>
-[
-  "Executing (default): DELETE FROM `PROVIDERS` WHERE `PROVIDERID` = '1'",
-  {
-    plain: false,
-    raw: false,
-    logging: [Function: logging],
-    showWarnings: false,
-    where: { PROVIDERID: '1' },
-    hooks: true,
-    individualHooks: false,
-    force: false,
-    cascade: false,
-    restartIdentity: false,
-    type: 'BULKDELETE',
-    model: Provider,
-    limit: null
-  }
-]
-Model destroyed!

@@ -5,6 +5,8 @@
  */
 export const UtilDate = {
 	dateTimeString(date: Date): string {
-		return `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+		const day = date.getDate() > 9 ? "0" + date.getDate() : date.getDate();
+		const month = date.getMonth() > 9 ? "0" + (date.getMonth()+1) : date.getMonth()+1;
+		return `${day}/${month}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 	}
 }

@@ -1,4 +1,9 @@
-import { MessageOBJ } from '../model/interfaces';
+import { NextFunction } from 'express';
+import { IncomingHttpHeaders } from 'http';
+import { Interface } from 'readline';
+
+import { MessageOBJ, ProviderAttributes } from '../model/interfaces';
+import { Secure } from '../utils';
 
 export default class AbstractController {
 	
@@ -15,8 +20,35 @@ export default class AbstractController {
 			msg: "Internal error. Try again later!",
 		}
 	}
+
+	public async authenticateUser(headers: IncomingHttpHeaders, id: string | number): Promise<void>{
+		console.log("Entering in method authenticateUser(headers: IncomingHttpHeaders)");
+		type PrvcltKeys = "provider" | "client";
+		const prvclt: Record<PrvcltKeys, string>  = {
+			provider: "PRV",
+			client: "CLT"
+		}
+		const field: string = prvclt[this.model.name.toLowerCase() as PrvcltKeys] + "EMAIL";
+		try {
+
+			const [email, pass] = Secure.getBasicUser(headers)!;
+			const user: any = await this.model.findByPk(id);
+			if(!user) {
+				throw new Error("User is not valid!");
+			}
+            await Secure.validatePass(pass, user);
+            await Secure.emailIsRequired(email, user[field]);
+		} catch (error) {
+			console.error(error);
+			this.message.error = true;
+			this.message.code = 403;
+			this.message.msg = 'Client unhauthorized!';
+			this.message.result = null;
+			throw new Error();
+		}
+	}
 	
-	public async save (body: any): Promise<MessageOBJ>  {
+	public async save (body: any): Promise<void>  {
 		console.log(`Entering in method AbstractController.save(body: ${typeof body} = `, body, `): Promise<MessageOBJ>`);
 		try {
 
@@ -33,19 +65,17 @@ export default class AbstractController {
 				this.message.result = model;
 				this.message.msg = "model created successfully!";
 			} 
-	
-			return this.message;
 		
 		} catch (error) {
 			this.message.result = null;
 			this.message.error = true;
 			this.message.msg = JSON.stringify(error);
 			console.error(error);
-			throw new Error(this.message + "");
+			throw new Error();
 		}
 	}
 
-	public async getByID (id: number | string ): Promise<MessageOBJ> {
+	public async getByID (id: number | string ): Promise<void> {
 		console.log(`Entering in method AbstractController.getByID(id: ${ typeof id} = ${id}): Promise<MessageOBJ>`);
 		try {
 
@@ -62,18 +92,17 @@ export default class AbstractController {
 				this.message.result = model;
 				this.message.msg = "found the model successfully!";
 			}
-			return this.message;
 			
-		} catch (error) {
+		} catch (error: any) {
 			this.message.result = null;
 			this.message.error = true;
 			this.message.msg = JSON.stringify(error);
 			console.error(error);
-			throw new Error(this.message + "");
+			throw new Error();
 		}
 	}
 
-	public async getByWhere(where: any): Promise<MessageOBJ> {
+	public async getByWhere(where: any): Promise<void> {
 		console.log(`Entering in method AbstractController.getByWhere(id: ${typeof where} = ${where}): Promise<MessageOBJ>`);
 		try {
 
@@ -90,18 +119,17 @@ export default class AbstractController {
 				this.message.result = model;
 				this.message.msg = "found the model successfully!";
 			}
-			return this.message;
 
 		} catch (error) {
 			this.message.result = null;
 			this.message.error = true;
 			this.message.msg = JSON.stringify(error);
 			console.error(error);
-			throw new Error(this.message + "");
+			throw new Error();
 		}
 	}
 	
-	public async getList (): Promise<MessageOBJ> {
+	public async getList (): Promise<void> {
 		console.log(`Entering in method AbstractController.getList(): Promise<MessageOBJ>`);
 		
 		try {
@@ -120,17 +148,16 @@ export default class AbstractController {
 				this.message.msg = "found all models successfully!";
 			}
 			
-			return this.message;
 		} catch (error: any) {
 			this.message.result = null;
 			this.message.error = true;
 			this.message.msg = JSON.stringify(error);
 			console.error(error);
-			throw new Error(this.message + "");
+			throw new Error();
 		}
 	}
 		
-	public async updateByID (body: any, where: any ): Promise<MessageOBJ> {
+	public async updateByID (body: any, where: any ): Promise<void> {
 		console.log(`Entering in method AbstractController.updateByID(body: ${typeof body} = ${body}, id: ${typeof where} = ${where}): Promise<MessageOBJ>`);
 
 		try {
@@ -150,13 +177,12 @@ export default class AbstractController {
 				this.message.result = modelUpdated;
 				this.message.msg = "updated successfully!";
 			}
-			return this.message;
 		} catch (error: any) {
 			this.message.result = null;
 			this.message.error = true;
 			this.message.result = JSON.stringify(error);
 			console.error(error);
-			throw new Error(this.message + "");
+			throw new Error();
 		}
 	}
 
@@ -167,7 +193,7 @@ export default class AbstractController {
 		return msg;
 	}
 	
-	public async deleteByID (where: any): Promise<MessageOBJ> {
+	public async deleteByID (where: any): Promise<void> {
 		console.log(`Entering in method AbstractController.deleteByID(id: ${typeof where} = ${where}): Promise<MessageOBJ>`);
 
 		try {
@@ -189,13 +215,12 @@ export default class AbstractController {
 				this.message.result = modelDestroyed;
 				this.message.msg = "deleted successfully!";
 			}
-			return this.message;
 		} catch (error: any) {
 			this.message.result = null;
 			this.message.error = true;
 			this.message.result = JSON.stringify(error);
 			console.error(error);
-			throw new Error(this.message + "");
+			throw new Error();
 		}
 	}
 	

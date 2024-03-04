@@ -1,8 +1,9 @@
 import { providerController } from "../controller";
-import { Request, Response, Application } from "express";
+import { Request, Response, Application, NextFunction } from "express";
 
 
 export function provider (app: Application) {
+	
 	app.get("/getProvider/:id", async (req: Request, res: Response) => { 
 		await providerController.getProviderByID(req, res);
 	});
