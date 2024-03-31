@@ -1,4 +1,4 @@
-import { clientController } from "./clientController";
-import providerController from "./providerController";
+import { ClientController } from "./clientController";
+import { ProviderController } from "./providerController";
 
-export { clientController, providerController };
+export { ClientController, ProviderController };

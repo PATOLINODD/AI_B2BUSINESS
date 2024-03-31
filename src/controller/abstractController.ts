@@ -1,4 +1,4 @@
-import { NextFunction } from 'express';
+import { Request, Response } from "express";
 import { IncomingHttpHeaders } from 'http';
 import { Interface } from 'readline';
 
@@ -8,11 +8,18 @@ import { Secure } from '../utils';
 export default class AbstractController {
 	
 	public message: MessageOBJ;
-	
+	public req: Request;
+	public res: Response;
+
 	protected model: any;
 	
-	constructor(model: any){
-		this.model = model;
+	constructor(req: Request, res: Response, abstractModel: any, action: string){ // [req, res, model]
+		this.model = abstractModel;
+		this.req = req;
+		this.res = res;
+		if(action === ""){
+			this.authenticateUser(req.headers, req.params.id);
+		}
 		this.message = {
 			code: 500,
 			error: true,
@@ -64,7 +71,11 @@ export default class AbstractController {
 				this.message.error = false;
 				this.message.result = model;
 				this.message.msg = "model created successfully!";
-			} 
+				return;
+			} else {
+				this.message.msg = "Wasn't possible to save the model. Verify the data and try again";
+				return;
+			}
 		
 		} catch (error) {
 			this.message.result = null;
@@ -91,6 +102,11 @@ export default class AbstractController {
 				this.message.error = false;
 				this.message.result = model;
 				this.message.msg = "found the model successfully!";
+				return;
+			} else {
+				this.message.code = 204;
+				this.message.msg = "Wasn't possible to find the model. Verify the data and try again";
+				return;
 			}
 			
 		} catch (error: any) {
@@ -118,6 +134,11 @@ export default class AbstractController {
 				this.message.error = false;
 				this.message.result = model;
 				this.message.msg = "found the model successfully!";
+				return;
+			} else {
+				this.message.code = 204;
+				this.message.msg = "Wasn't possible to find the model. Verify the data and try again";
+				return;
 			}
 
 		} catch (error) {
@@ -146,6 +167,11 @@ export default class AbstractController {
 				this.message.error = false;
 				this.message.result = models;
 				this.message.msg = "found all models successfully!";
+				return;
+			} else {
+				this.message.code = 204;
+				this.message.msg = "Models wasn't possible to find!";
+				return;
 			}
 			
 		} catch (error: any) {
@@ -176,6 +202,11 @@ export default class AbstractController {
 				this.message.error = false;
 				this.message.result = modelUpdated;
 				this.message.msg = "updated successfully!";
+				return;
+			} else {
+				this.message.code = 400;
+				this.message.msg = "Wasn't possible to update the model. Verify the data and try again";
+				return;
 			}
 		} catch (error: any) {
 			this.message.result = null;
@@ -187,7 +218,6 @@ export default class AbstractController {
 	}
 
 	protected msgError(msg: MessageOBJ): MessageOBJ{
-		msg.code = 400;
 		msg.error = true;
 		msg.result = null;
 		return msg;
@@ -214,6 +244,10 @@ export default class AbstractController {
 				this.message.error = false;
 				this.message.result = modelDestroyed;
 				this.message.msg = "deleted successfully!";
+				return;
+			} else {
+				this.message.msg = "Wasn't possible to delete the model. Verify the data and try again";
+				return;
 			}
 		} catch (error: any) {
 			this.message.result = null;

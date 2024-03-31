@@ -65,72 +65,6 @@ app listening in port 4200
   }
 ]
 [
-  'Executing (default): CREATE TABLE IF NOT EXISTS `CLIENTS` (`CLTID` INTEGER auto_increment , `CLTNAME` VARCHAR(50), `CLTEMAIL` VARCHAR(50), `CLTPASSWORD` TEXT, `CLTCNPJ` VARCHAR(15), `CLTBUSINESSNAME` VARCHAR(20), `CLTFANTASYNAME` VARCHAR(30), `CLTSOCIALREASON` VARCHAR(20), `CLTCREATEDATE` VARCHAR(255), `CLTUPDATEDATE` VARCHAR(255), PRIMARY KEY (`CLTID`)) ENGINE=InnoDB;',
-  {
-    plain: false,
-    raw: true,
-    logging: [Function: logging],
-    showWarnings: false,
-    timestamps: true,
-    validate: {},
-    freezeTableName: false,
-    underscored: false,
-    paranoid: false,
-    rejectOnEmpty: false,
-    whereCollection: null,
-    schema: null,
-    schemaDelimiter: '',
-    defaultScope: {},
-    scopes: {},
-    indexes: [],
-    whereMergeStrategy: 'overwrite',
-    name: { plural: 'Clients', singular: 'Client' },
-    omitNull: false,
-    tableName: 'CLIENTS',
-    createdAt: false,
-    updatedAt: false,
-    sequelize: Sequelize {
-      options: [Object],
-      config: [Object],
-      dialect: [MysqlDialect],
-      queryInterface: [MySQLQueryInterface],
-      models: [Object],
-      modelManager: [ModelManager],
-      connectionManager: [ConnectionManager]
-    },
-    hooks: true,
-    dialect: 'mysql',
-    dialectModule: null,
-    dialectModulePath: null,
-    host: '127.0.0.1',
-    protocol: 'tcp',
-    define: {},
-    query: {},
-    sync: {},
-    timezone: '+00:00',
-    standardConformingStrings: true,
-    native: false,
-    replication: false,
-    ssl: undefined,
-    pool: {},
-    quoteIdentifiers: true,
-    retry: { max: 5, match: [Array] },
-    transactionType: 'DEFERRED',
-    isolationLevel: null,
-    databaseVersion: 0,
-    typeValidation: false,
-    benchmark: false,
-    minifyAliases: false,
-    logQueryParameters: true,
-    attributeBehavior: 'throw',
-    port: 3306,
-    dialectOptions: { flags: [Object] },
-    match: /IAB2BUSINESS/,
-    uniqueKeys: {},
-    type: 'RAW'
-  }
-]
-[
   'Executing (default): SHOW INDEX FROM `CLIENTS`',
   {
     plain: false,
@@ -261,72 +195,6 @@ app listening in port 4200
   }
 ]
 [
-  'Executing (default): CREATE TABLE IF NOT EXISTS `PROVIDERS` (`PROVIDERID` INTEGER auto_increment , `PRVNAME` VARCHAR(50), `PRVEMAIL` VARCHAR(50), `PRVPASSWORD` TEXT, `PRVCNPJ` VARCHAR(15), `PRVBUSINESSNAME` VARCHAR(20), `PRVFANTASYNAME` VARCHAR(30), `PRVSOCIALREASON` VARCHAR(20), `PRVSECTORACTING` VARCHAR(100), `PRVCREATEDATE` VARCHAR(100), `PRVUPDATEDATE` VARCHAR(100), PRIMARY KEY (`PROVIDERID`)) ENGINE=InnoDB;',
-  {
-    plain: false,
-    raw: true,
-    logging: [Function: logging],
-    showWarnings: false,
-    timestamps: true,
-    validate: {},
-    freezeTableName: false,
-    underscored: false,
-    paranoid: false,
-    rejectOnEmpty: false,
-    whereCollection: null,
-    schema: null,
-    schemaDelimiter: '',
-    defaultScope: {},
-    scopes: {},
-    indexes: [],
-    whereMergeStrategy: 'overwrite',
-    name: { plural: 'Providers', singular: 'Provider' },
-    omitNull: false,
-    tableName: 'PROVIDERS',
-    createdAt: false,
-    updatedAt: false,
-    sequelize: Sequelize {
-      options: [Object],
-      config: [Object],
-      dialect: [MysqlDialect],
-      queryInterface: [MySQLQueryInterface],
-      models: [Object],
-      modelManager: [ModelManager],
-      connectionManager: [ConnectionManager]
-    },
-    hooks: true,
-    dialect: 'mysql',
-    dialectModule: null,
-    dialectModulePath: null,
-    host: '127.0.0.1',
-    protocol: 'tcp',
-    define: {},
-    query: {},
-    sync: {},
-    timezone: '+00:00',
-    standardConformingStrings: true,
-    native: false,
-    replication: false,
-    ssl: undefined,
-    pool: {},
-    quoteIdentifiers: true,
-    retry: { max: 5, match: [Array] },
-    transactionType: 'DEFERRED',
-    isolationLevel: null,
-    databaseVersion: 0,
-    typeValidation: false,
-    benchmark: false,
-    minifyAliases: false,
-    logQueryParameters: true,
-    attributeBehavior: 'throw',
-    port: 3306,
-    dialectOptions: { flags: [Object] },
-    match: /IAB2BUSINESS/,
-    uniqueKeys: {},
-    type: 'RAW'
-  }
-]
-[
   'Executing (default): SHOW INDEX FROM `PROVIDERS`',
   {
     plain: false,
@@ -392,3 +260,119 @@ app listening in port 4200
   }
 ]
 connect successfully!
+Entering in method authenticateUser(headers: IncomingHttpHeaders)
+Entering in method Secure.getBasicUser(header: IncomingHttpHeaders): string[] | null
+Entering in method ProviderController.deleteProviderByID(): Promise<void>
+Entering in method AbstractController.deleteByID(id: object = [object Object]): Promise<MessageOBJ>
+[
+  "Executing (default): DELETE FROM `PROVIDERS` WHERE `PROVIDERID` = '1'",
+  {
+    plain: false,
+    raw: false,
+    logging: [Function: logging],
+    showWarnings: false,
+    where: { PROVIDERID: '1' },
+    hooks: true,
+    individualHooks: false,
+    force: false,
+    cascade: false,
+    restartIdentity: false,
+    type: 'BULKDELETE',
+    model: Provider,
+    limit: null
+  }
+]
+[
+  "Executing (default): SELECT `PROVIDERID`, `PRVNAME`, `PRVEMAIL`, `PRVPASSWORD`, `PRVCNPJ`, `PRVBUSINESSNAME`, `PRVFANTASYNAME`, `PRVSOCIALREASON`, `PRVSECTORACTING`, `PRVCREATEDATE`, `PRVUPDATEDATE` FROM `PROVIDERS` AS `Provider` WHERE `Provider`.`PROVIDERID` = '1';",
+  {
+    plain: true,
+    raw: false,
+    logging: [Function: logging],
+    showWarnings: false,
+    where: "`Provider`.`PROVIDERID` = '1'",
+    hooks: true,
+    rejectOnEmpty: false,
+    originalAttributes: [
+      'PROVIDERID',
+      'PRVNAME',
+      'PRVEMAIL',
+      'PRVPASSWORD',
+      'PRVCNPJ',
+      'PRVBUSINESSNAME',
+      'PRVFANTASYNAME',
+      'PRVSOCIALREASON',
+      'PRVSECTORACTING',
+      'PRVCREATEDATE',
+      'PRVUPDATEDATE'
+    ],
+    attributes: [
+      'PROVIDERID',
+      'PRVNAME',
+      'PRVEMAIL',
+      'PRVPASSWORD',
+      'PRVCNPJ',
+      'PRVBUSINESSNAME',
+      'PRVFANTASYNAME',
+      'PRVSOCIALREASON',
+      'PRVSECTORACTING',
+      'PRVCREATEDATE',
+      'PRVUPDATEDATE'
+    ],
+    tableNames: [ 'PROVIDERS' ],
+    type: 'SELECT',
+    model: Provider
+  }
+]
+Entering in method Secure.validatePass(token: string, model: any): Promise<void>
+Provider {
+  dataValues: {
+    PROVIDERID: 1,
+    PRVNAME: 'NOME GENERICO 123',
+    PRVEMAIL: 'ninguemaquitenta@gmail.com',
+    PRVPASSWORD: '$2a$12$y5KJTtFkArjMMtZmlenywu8UJSVCiMnB0KvfwPx77syvg9FZIKlhq',
+    PRVCNPJ: '123456788',
+    PRVBUSINESSNAME: 'WISEUP',
+    PRVFANTASYNAME: 'WISEUP',
+    PRVSOCIALREASON: 'INGLES',
+    PRVSECTORACTING: 'INGLES',
+    PRVCREATEDATE: '018/3/2024 0:19:18',
+    PRVUPDATEDATE: '018/3/2024 0:23:12'
+  },
+  _previousDataValues: {
+    PROVIDERID: 1,
+    PRVNAME: 'NOME GENERICO 123',
+    PRVEMAIL: 'ninguemaquitenta@gmail.com',
+    PRVPASSWORD: '$2a$12$y5KJTtFkArjMMtZmlenywu8UJSVCiMnB0KvfwPx77syvg9FZIKlhq',
+    PRVCNPJ: '123456788',
+    PRVBUSINESSNAME: 'WISEUP',
+    PRVFANTASYNAME: 'WISEUP',
+    PRVSOCIALREASON: 'INGLES',
+    PRVSECTORACTING: 'INGLES',
+    PRVCREATEDATE: '018/3/2024 0:19:18',
+    PRVUPDATEDATE: '018/3/2024 0:23:12'
+  },
+  uniqno: 1,
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: null,
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'PROVIDERID',
+      'PRVNAME',
+      'PRVEMAIL',
+      'PRVPASSWORD',
+      'PRVCNPJ',
+      'PRVBUSINESSNAME',
+      'PRVFANTASYNAME',
+      'PRVSOCIALREASON',
+      'PRVSECTORACTING',
+      'PRVCREATEDATE',
+      'PRVUPDATEDATE'
+    ]
+  },
+  isNewRecord: false
+}
+Entering in method Secure.emailIsRequired(where: any, model: any): Promise<void>
+Model destroyed!
