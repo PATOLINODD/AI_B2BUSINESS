@@ -1,5 +1,10 @@
 import { app } from "./infra";
 import { sequelize } from "./connectDatabase";
+import express from 'express';
+import { Secure } from './src/security/secureData';
+
+app.use(express.json);
+app.use(Secure.authenticateUser);
 
 (async () => {
 	try {
